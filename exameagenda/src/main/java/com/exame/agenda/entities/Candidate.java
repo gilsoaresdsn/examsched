@@ -14,9 +14,12 @@ import javax.persistence.OneToMany;
 //import org.springframework.data.annotation.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="Candidate")
 public class Candidate implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -28,6 +31,8 @@ public class Candidate implements Serializable {
 	private String phone;
 	private String password;
 	
+	//Atencao a asssociacao de mao dupla - tratado com a anotacao @JsonIgnore
+	//@JsonIgnore
 	@OneToMany(mappedBy = "candidato")
 	private List<Availability> exame = new ArrayList<>();
 

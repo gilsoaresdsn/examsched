@@ -21,10 +21,22 @@ public class CandidateServices {
 		return repository.findAll();
 	}
 	
+	//Localiza por ID
 	public Candidate findById(Long id) {
 		Optional<Candidate> obj = repository.findById(id);
 		return obj.get();
 	}
+	
+	//Insercao de dados
+	public Candidate insert(Candidate obj) {
+		return repository.save(obj);
+	}
+	
+	//Delecao de dados por ID
+	public void delete(Long id) {
+		repository.deleteById(id);
+	}
+	
 	
 	
 	
